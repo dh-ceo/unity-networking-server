@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity Networking Server", "Unity Networking Server.csproj", "{9CBD9EA8-5395-4B30-B394-5A218560F9D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9CBD9EA8-5395-4B30-B394-5A218560F9D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CBD9EA8-5395-4B30-B394-5A218560F9D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CBD9EA8-5395-4B30-B394-5A218560F9D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CBD9EA8-5395-4B30-B394-5A218560F9D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {385FF029-FF24-49A4-8501-5BFD30765933}
+	EndGlobalSection
+EndGlobal
