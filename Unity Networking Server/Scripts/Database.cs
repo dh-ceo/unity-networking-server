@@ -23,12 +23,14 @@ namespace DevelopersHub.Unity.Networking
                 {
                     connection = new MySqlConnection("SERVER=" + server + "; DATABASE=" + database + "; UID=" + username + "; PASSWORD=" + password + ";");
                     connection.Open();
+                    proccessing = false;
                 }
                 else if (connection.State == ConnectionState.Broken)
                 {
                     connection.Close();
                     connection = new MySqlConnection("SERVER=" + server + "; DATABASE=" + database + "; UID=" + username + "; PASSWORD=" + password + ";");
                     connection.Open();
+                    proccessing = false;
                 }
             }
             catch (Exception ex)
