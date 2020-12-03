@@ -87,7 +87,7 @@ namespace DevelopersHub.Unity.Networking
         #region Process Methods
         public static void ClientConnected(int id)
         {
-
+            Outgoing.Connected(id);
         }
 
         public static void ClientDisconnected(int id)

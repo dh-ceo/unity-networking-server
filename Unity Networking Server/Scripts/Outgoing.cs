@@ -8,17 +8,13 @@ namespace DevelopersHub.Unity.Networking
 
         public enum OutgoingType
         {
-            outgoingType = 0
+            connected = 0
         }
 
-        public static void InitializeClient(int id, string exampleString, int exampleInt)
+        public static void Connected(int id)
         {
             Carrier carrier = new Carrier(4);
-            carrier.SetInt32((int)OutgoingType.outgoingType);
-            #region Set Data
-            carrier.SetString(exampleString);
-            carrier.SetInt32(exampleInt);
-            #endregion
+            carrier.SetInt32((int)OutgoingType.connected);
             Configuration.Socket.SendDataTo(id, carrier.values, carrier.space);
             carrier.Dispose();
         }
