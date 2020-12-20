@@ -1,4 +1,12 @@
-﻿using System;
+//-----------------------------------------------------------------------
+// Author  : Armin Ahmadi
+// Email   : developershub.organization@gmail.com
+// Website : www.developershub.org
+// Copyright © 2020, Developers Hub
+// All rights reserved
+//-----------------------------------------------------------------------
+
+using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.IO;
@@ -59,7 +67,7 @@ namespace DevelopersHub.Unity.Networking
             space += 4;
             return int32;
         }
-        
+
         public int[] GetInt32Array()
         {
             string data = GetString();
@@ -77,7 +85,7 @@ namespace DevelopersHub.Unity.Networking
             }
             return new int[0];
         }
-        
+
         public uint GetUInt32()
         {
             if (space + 4 > values.Length)
@@ -125,24 +133,24 @@ namespace DevelopersHub.Unity.Networking
         {
             SetBlock(BitConverter.GetBytes(value));
         }
-        
+
         public void SetInt32Array(int[] value)
         {
-            if(value != null && value.Length > 0)
+            if (value != null && value.Length > 0)
             {
                 string data = "";
                 for (int i = 0; i < value.Length; i++)
                 {
-                    if(i != 0)
+                    if (i != 0)
                     {
-                        data = "|" + data;
+                        data = data + "|";
                     }
-                    data = data + value[i];
+                    data = data + value[i].ToString();
                 }
                 SetString(data);
             }
         }
-        
+
         public void SetUInt32(uint value)
         {
             SetBlock(BitConverter.GetBytes(value));
@@ -177,6 +185,16 @@ namespace DevelopersHub.Unity.Networking
             return str;
         }
 
+        public string[] GetStringArray(char separator)
+        {
+            string data = GetString();
+            if (!string.IsNullOrEmpty(data))
+            {
+                return data.Split(separator);
+            }
+            return new string[0];
+        }
+
         public char GetChar()
         {
             if (space + 2 > values.Length)
@@ -199,6 +217,23 @@ namespace DevelopersHub.Unity.Networking
                 byte[] bytes = Encoding.UTF8.GetBytes(value);
                 SetInt32(bytes.Length);
                 SetBlock(bytes);
+            }
+        }
+
+        public void SetStringArray(string[] value, char separator)
+        {
+            if (value != null && value.Length > 0)
+            {
+                string data = "";
+                for (int i = 0; i < value.Length; i++)
+                {
+                    if (i != 0)
+                    {
+                        data = data + separator;
+                    }
+                    data = data + value[i];
+                }
+                SetString(data);
             }
         }
 
