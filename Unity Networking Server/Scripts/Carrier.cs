@@ -229,7 +229,7 @@ namespace DevelopersHub.Unity.Networking
                 {
                     if (i != 0)
                     {
-                        data = data + separator;
+                        data = data + separator.ToString();
                     }
                     data = data + value[i];
                 }
