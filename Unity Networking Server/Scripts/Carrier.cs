@@ -59,7 +59,25 @@ namespace DevelopersHub.Unity.Networking
             space += 4;
             return int32;
         }
-
+        
+        public int[] GetInt32Array()
+        {
+            string data = GetString();
+            if (!string.IsNullOrEmpty(data))
+            {
+                string[] parts = data.Split('|');
+                int[] array = new int[parts.Length];
+                for (int i = 0; i < parts.Length; i++)
+                {
+                    int n = 0;
+                    int.TryParse(parts[i], out n);
+                    array[i] = n;
+                }
+                return array;
+            }
+            return new int[0];
+        }
+        
         public uint GetUInt32()
         {
             if (space + 4 > values.Length)
@@ -107,7 +125,24 @@ namespace DevelopersHub.Unity.Networking
         {
             SetBlock(BitConverter.GetBytes(value));
         }
-
+        
+        public void SetInt32Array(int[] value)
+        {
+            if(value != null && value.Length > 0)
+            {
+                string data = "";
+                for (int i = 0; i < value.Length; i++)
+                {
+                    if(i != 0)
+                    {
+                        data = "|" + data;
+                    }
+                    data = data + value[i];
+                }
+                SetString(data);
+            }
+        }
+        
         public void SetUInt32(uint value)
         {
             SetBlock(BitConverter.GetBytes(value));
